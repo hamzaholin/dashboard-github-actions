@@ -2,6 +2,9 @@
 
 Dashboard monitoring untuk CI/CD pipeline yang terintegrasi dengan GitHub Actions. Dashboard ini menampilkan status workflow runs dari semua repository dalam sebuah GitHub organization.
 
+
+<img width="2108" height="1449" alt="image" src="https://github.com/user-attachments/assets/e25ee819-3187-409a-917b-d9bdba8be1b4" />
+
 ## Fitur
 
 - 📊 **Dashboard Overview**: Statistik lengkap untuk Success, Failed, Running, Pending, dan Total Jobs
