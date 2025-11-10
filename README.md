@@ -352,6 +352,7 @@ go build -o monitoring-cicd main.go
 - Pastikan ada workflow runs di repository dalam organization
 - Check console browser untuk error messages
 
-## License
 
-MIT
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=pharmaniaga/monitoring-cicd&type=Date)](https://star-history.com/#pharmaniaga/monitoring-cicd&Date)
