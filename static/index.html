@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD Pipeline Monitoring Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>CI/CD Pipeline Monitoring Dashboard</h1>
+            <div class="header-actions">
+                <button id="refreshBtn" class="btn btn-primary">Refresh</button>
+                <button id="autoRefreshBtn" class="btn btn-secondary">Auto Refresh: OFF</button>
+            </div>
+        </header>
+
+        <!-- Stats Cards -->
+        <div class="stats-container">
+            <div class="stat-card success">
+                <div class="stat-icon">✓</div>
+                <div class="stat-content">
+                    <div class="stat-label">Success</div>
+                    <div class="stat-value" id="successCount">0</div>
+                </div>
+            </div>
+            <div class="stat-card failed">
+                <div class="stat-icon">✗</div>
+                <div class="stat-content">
+                    <div class="stat-label">Failed</div>
+                    <div class="stat-value" id="failedCount">0</div>
+                </div>
+            </div>
+            <div class="stat-card running">
+                <div class="stat-icon">⟳</div>
+                <div class="stat-content">
+                    <div class="stat-label">Running</div>
+                    <div class="stat-value" id="runningCount">0</div>
+                </div>
+            </div>
+            <div class="stat-card pending">
+                <div class="stat-icon">⏳</div>
+                <div class="stat-content">
+                    <div class="stat-label">Pending</div>
+                    <div class="stat-value" id="pendingCount">0</div>
+                </div>
+            </div>
+            <div class="stat-card total">
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <div class="stat-label">Total Jobs</div>
+                    <div class="stat-value" id="totalCount">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+            <div class="filter-group">
+                <label for="periodFilter">Time Period:</label>
+                <select id="periodFilter" class="filter-select">
+                    <option value="today">Hari Ini</option>
+                    <option value="week" selected>Seminggu Terakhir</option>
+                    <option value="month">Bulan Ini</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="orgFilter">Filter by Organization:</label>
+                <select id="orgFilter" class="filter-select">
+                    <option value="all">All Organizations</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="statusFilter">Filter by Status:</label>
+                <select id="statusFilter" class="filter-select">
+                    <option value="all">All Status</option>
+                    <option value="success">Success</option>
+                    <option value="failed">Failed</option>
+                    <option value="running">Running</option>
+                    <option value="pending">Pending</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="searchInput">Search:</label>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search by job name...">
+            </div>
+            <div class="filter-group">
+                <label for="itemsPerPage">Items per page:</label>
+                <select id="itemsPerPage" class="filter-select">
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            <div class="filter-group rate-limit-group">
+                <div id="rateLimitInfo" class="rate-limit-info">
+                    <span class="rate-limit-label">Rate Limit:</span>
+                    <span class="rate-limit-value" id="rateLimitValue">-/-</span>
+                    <span class="rate-limit-reset" id="rateLimitReset"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Jobs Table -->
+        <div class="table-container">
+            <table class="jobs-table">
+                <thead>
+                    <tr>
+                        <th>JOB ID</th>
+                        <th>JOB NAME</th>
+                        <th>STATUS</th>
+                        <th>REPOSITORY</th>
+                        <th>BRANCH</th>
+                        <th>DURATION</th>
+                        <th>STARTED</th>
+                        <th>ORGANIZATION</th>
+                        <th>LINK</th>
+                    </tr>
+                </thead>
+                <tbody id="jobsTableBody">
+                    <tr>
+                        <td colspan="9" class="loading">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
