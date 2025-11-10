@@ -358,4 +358,4 @@ go build -o monitoring-cicd main.go
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=pharmaniaga/monitoring-cicd&type=Date)](https://star-history.com/#monitoring-cicd&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=monitoring-cicd&type=Date)](https://star-history.com/#monitoring-cicd&Date)
